@@ -1,0 +1,82 @@
+import state
+import pygame
+import utilities
+import os
+import random
+
+
+class Victory(state.State):
+    def __init__(self,game):
+        state.State.__init__(self,game)
+        self.credits = ["programming ,art, and music by Chris Eldridge",
+                        "sound effect from Juhani Junkala 512 sound effect on opengameart.org",
+                        "special thanks to the pygame community",
+                        "thanks for playing"]
+        self.background = utilities.loadImage(os.path.join("data", "images"), "skygrad.png")
+        self.grassimage = utilities.loadImage(os.path.join("data", "images"), "grass.png", 1)
+        self.grassshadow = utilities.loadImage(os.path.join("data", "images"), "grasshadow.png", 1)
+        self.credittext = self.game.small_font.render(self.credits[0], True, (255, 255, 255))
+        self.credittextrect = self.credittext.get_rect(
+            center=(self.game.screen_width / 2, self.game.screen_height / 2 - 30))
+        self.titletext = self.game.large_font.render("Victory", True, (255, 255, 255))
+        self.titletext2 = self.game.large_font.render("Victory", True, (25, 25, 25))
+        self.titletextrect = self.titletext.get_rect(center=(self.game.screen_width / 2, self.game.screen_height / 4))
+        self.musicstart = False
+        self.credit_count = 0
+        self.credit_timer = 100
+
+    def update(self):
+        if self.musicstart == False:
+            pygame.mixer.music.load(os.path.join("data", "music", "moesstartscreen.ogg"))
+            pygame.mixer.music.play(-1, 0, 10)
+            self.musicstart = True
+        if self.credit_timer <= 0:
+            self.credit_timer = 100
+            self.credit_count += 1
+            if self.credit_count < 4:
+                self.credittext = self.game.small_font.render(self.credits[self.credit_count], True, (255, 255, 255))
+                self.credittextrect = self.credittext.get_rect(center=(self.game.screen_width / 2, self.game.screen_height / 2 - 30))
+            else:
+                self.exit()
+                pygame.mixer.music.unload()
+                self.musicstart = False
+                self.game.spash.enter()
+                self.game.spash.countdown = 75
+
+        self.credit_timer -= 1
+
+
+        if self.game.actions["start"] and self.game.pausecooldown <= 0:
+            self.game.pausecooldown = 20
+            self.credit_timer = 100
+            self.credit_count += 1
+            if self.credit_count < 4:
+                self.credittext = self.game.small_font.render(self.credits[self.credit_count], True, (255, 255, 255))
+                self.credittextrect = self.credittext.get_rect(
+                    center=(self.game.screen_width / 2, self.game.screen_height / 2 - 30))
+            else:
+                self.exit()
+                pygame.mixer.music.unload()
+                self.musicstart = False
+                self.game.spash.enter()
+                self.game.spash.countdown = 75
+
+
+    def render(self):
+        rcolor = random.randint(20, 60)
+        tempsurf = pygame.Surface((self.game.screen_width, self.game.screen_height))
+        tempsurf.blit(pygame.transform.scale(self.background, (800, 640)), (0, 0))
+        tempsurf.blit(pygame.transform.scale(self.grassshadow, (800, 640)), (random.randint(0, 5), 50))
+        tempsurf.blit(pygame.transform.scale(self.grassimage, (800, 640)), (0, 55))
+        tempsurf.blit(pygame.transform.scale(pygame.transform.flip(self.grassshadow, True, False), (800, 640)),
+                      (random.randint(0, 5), 75))
+        tempsurf.blit(pygame.transform.scale(pygame.transform.flip(self.grassimage, True, False), (800, 640)), (0, 80))
+        tempsurf.blit(self.titletext2,
+                      utilities.add_pos(self.titletextrect.topleft, (random.randint(5, 10), (random.randint(5, 10)))))
+        tempsurf.blit(self.titletext, self.titletextrect)
+        self.credittext.set_alpha(random.randint(50, 150))
+        tempsurf.blit(self.credittext, self.credittextrect)
+        pygame.draw.rect(tempsurf, (rcolor, rcolor, rcolor),
+                         self.credittextrect.inflate(random.randint(3, 10), random.randint(3, 10)), 1)
+        tempsurf.set_colorkey((0, 0, 0))
+        self.game.screen.blit(tempsurf, (0, 0))
