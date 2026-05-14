@@ -272,6 +272,8 @@ class Platformer(state.State):
                     self.player.set_pos((x,y))
                 if k == "C":
                     self.collidables.add(baddies.Crab((x,y),self.collidables))
+                if k == "G":
+                    self.collidables.add(baddies.Ghost((x,y),self.collidables))
                 if k == "f":
                     self.collidables.add(blocks.finish((x,y)))
                 if k == "E":
