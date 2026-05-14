@@ -25,7 +25,7 @@ class death(state.State):
         self.death_text = self.game.large_font.render("*you died*",False,(0,0,0))
         self.death_text_rect = self.death_text.get_rect(center=(self.game.screen_width / 2, self.game.screen_height / 2))
     def update(self):
-        if self.game.actions["start"] and self.game.pausecooldown <= 0:
+        if self.game.actions["a"] and self.game.pausecooldown <= 0:
             self.game.pausecooldown = 20
             self.game.levelselection.enter()
             self.exit()

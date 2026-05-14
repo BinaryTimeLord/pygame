@@ -6,31 +6,34 @@ levellocks = [0,1,1,1,1,1,1,1,1,1,1,1]
 
 level1 = {"num":1,"map":
  [
-  "                                                                                                                      ",
-  "                                                                                                                      ",
-  "                                                                                                                      ",
-  "              c                                   c c                                             gggggggggggggggggg  ",
-  "g            c c                                a     c                                           gggggggggggggggggg  ",
-  "g           c   c                             rgggg    c                                    f     gggggggggggggggggg  ",
-  "g          ggg ggg         c  c  c  c       rgggggg    c       gg   gg  gg  gg                    gggggggggggggggggg  ",
-  "g  P                 g  Ct     t         gggggggggg   t  T                            T           gggggggggggggggggg  ",
-  "gggggggggggg     ggggggggggggggggggggggggggggggggggggggggggggggSSSSSSSSSSSSSSSSggggggggggggggggggggggggggggggggggggggg",
-  "ggggggggggggSSSSSggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-  "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"],
+  "g                                       h                                         g             g",
+  "g                                gbbbbbbbbbbbbg                                f  g             g",
+  "g                                                       T t                       g             g",
+  "g         r p   gl   gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg             g",
+  "g        rgbbb  ggl                                   g                                         g",
+  "g       rgg  p  gggl                                  g                                         g",
+  "g      rgggbbb  ggggl                                 g                                         g",
+  "g     rgggg    pgggggl        cccccccccccc       t    g                                         g",
+  "gggggbgggggggggggggggggggggggggggggggggggggggggggggggggbggg  c                                  g",
+  "ggggg    c     c     c    c    c     c     c     c      ggg  g  c                               g",
+  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg     g                               g",
+  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg       Cg       T t          P       g",
+  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"],
  "ground image":"beach.png",
   "background image":"beachbackground.png",
          "music":"beachtheme.ogg",
           "decor":["palmtree1.png","palmtree2.png","beachbush.png"]}
 level2 = {"num":2,"map":
  ["                                                                                                                      ",
-  "gg                                                 cccccc                                                           gg",
-  "gg             ggg                                gbbbbbbg                                                          gg",
-  "gg           bbgggbb                              c  c c  c                                                         gg",
-  "gg             ggg                              gbbbbbbbbbbg                                                       hgg",
-  "gg           bbgggbbbbbbbbbbggl                                                                                     gg",
-  "gg P           ggg          ggggl             gbbbbbbbbbbbbbbbg                       t       T     t  f         bbbgg",
-  "ggl    t      rggg c c Cc  pgggggggl  t  T                        t                   g   aC  g  aC g               gg",
-  "ggggggggggggggggggggggggggggggggggggggggggggggSSSSSSSSSSSSSSSSSggggggl      C     rggggggggggggggggggggggggggggggggggg",
+  "gg                                                                      h                                           gg",
+  "gg                                   ccc                             gbbbbbg                               f        gg",
+  "gg                                 gbg ggg                                                                          gg",
+  "gg                                ggbg gggg                  ggggg                              gbg   ggggggg       gg",
+  "gg                               gggbg ggggg         c c c                                     ggbg                 gg",
+  "gg         c c c c c c          ggggbg gggggg       ggggggg                                   gggbg                 gg",
+  "gg P t   ggggggggggggggg   t   ggggg  hggggggg      T    t           T       C               gggg        cccc       gg",
+  "ggggggggSSSSSSSSSSSSSSSSSggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
   "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
   "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
   "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"],
@@ -330,3 +333,7 @@ level12 = {"num":12 ,"map":
   "background image":"cavebg.png",
    "music":"cavetheme.ogg",
           "decor":["cavetree1.png","cavetree2.png","cavebush.png"] }
+
+
+
+

@@ -44,6 +44,8 @@ class Platformer(state.State):
         self.coins = 0
         self.lives = 3
         self.health = 3
+        self.death_count = 0
+
 
         self.jumpsound = utilities.loadSound(os.path.join("data", "sounds"),"jump.wav")
         self.oneupsound = utilities.loadSound(os.path.join("data", "sounds"), "1up.wav")
@@ -67,11 +69,22 @@ class Platformer(state.State):
         if self.game.actions["down"]:
             pass
         if self.game.actions["a"] and not self.player.hasjumped:
-            if self.player.jumptimer <= 0  and self.player.groundcount > 0 :
+            if self.player.jumptimer <= 0 and self.player.groundcount > 0:
+                # normal jump from ground
                 self.player.jumptimer = 25
                 self.jumpsound.play()
                 self.player.actstate["jumping"] = True
                 self.player.hasjumped = True
+            elif (self.player.jumptimer <= 0 and self.player.groundcount <= 0
+                  and not self.player.doublejump):
+                # double jump in mid-air
+                self.player.jumptimer = 35
+                self.player.doublejump = True
+                self.jumpsound.play()
+                self.player.actstate["jumping"] = True
+                self.player.hasjumped = True
+        if self.player.jumptimer <= 0 and self.player.groundcount <= 0:
+            self.player.hasjumped = False
 
         if self.game.actions["b"]:
             pass
@@ -90,13 +103,11 @@ class Platformer(state.State):
         self.game.victory.enter()
     def die(self):
         self.exit()
-        self.lives -= 1
-        if self.lives <= 0:
-            self.game.curr_state.exit()
-            self.game.gameover.enter()
-        else:
-            self.game.deathscreen.enter()
+        self.death_count += 1
+        self.game.deathscreen.enter() 
 
+
+            
     def update(self):
         self.action_update()
         self.player.update()
@@ -109,6 +120,7 @@ class Platformer(state.State):
             self.lives += 1
             self.oneupsound.play()
             self.coins -= 100
+
 
 
     def render(self):

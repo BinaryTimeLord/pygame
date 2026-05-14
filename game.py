@@ -38,7 +38,7 @@ class game():
         except:
             print("none")
         self.actions = {"a":False,"b":False,"up": False,"down":False,"left":False,"right":False,"start":False, "select":False}
-        self.action_mapping = { "a":pygame.K_a,"b":pygame.K_s,"up":pygame.K_UP, "down":pygame.K_DOWN, "left":pygame.K_LEFT,"right":pygame.K_RIGHT,"start":pygame.K_RETURN,"select":pygame.K_RIGHTBRACKET}
+        self.action_mapping = { "a":pygame.K_SPACE,"b":pygame.K_BACKSPACE,"up":pygame.K_w, "down":pygame.K_s, "left":pygame.K_a,"right":pygame.K_d,"start":pygame.K_RETURN,"select":pygame.K_RIGHTBRACKET}
 
         #sets up clock and other time related
         self.clock = pygame.time.Clock()

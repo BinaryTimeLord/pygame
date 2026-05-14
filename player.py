@@ -35,6 +35,7 @@ class Player(pygame.sprite.Sprite):
         self.groundcount = 3
         self.grounded = False
         self.hasjumped = False
+        self.doublejump = False
         self.hitcooldown = 0
 
     def set_pos(self, pos):
@@ -72,9 +73,11 @@ class Player(pygame.sprite.Sprite):
                 block.onhit(self,3)
     def update(self):
         if self.groundcount > -10:
-            self.move(0,1)
+                self.move(0,1)
         if self.groundcount <= -10:
-            self.move(0,2)
+                self.move(0,2)
+        if self.groundcount == 3 and not self.grounded:
+                self.doublejump = False
         self.frame += 1
         if utilities.get_key(self.actstate,True) == None:
             self.actstate["idle"] = True
