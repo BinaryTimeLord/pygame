@@ -43,7 +43,7 @@ class Platformer(state.State):
 
         self.coins = 0
         self.lives = 3
-        self.health = 3
+        self.health = 5
         self.death_count = 0
 
 
@@ -83,7 +83,8 @@ class Platformer(state.State):
                 self.jumpsound.play()
                 self.player.actstate["jumping"] = True
                 self.player.hasjumped = True
-        if self.player.jumptimer <= 0 and self.player.groundcount <= 0:
+        # Guys ito yung nagre-require na bitawan muna yung spacebar bago makapag double jump uli
+        if not self.game.actions["a"]:
             self.player.hasjumped = False
 
         if self.game.actions["b"]:
@@ -104,7 +105,15 @@ class Platformer(state.State):
     def die(self):
         self.exit()
         self.death_count += 1
-        self.game.deathscreen.enter() 
+        self.lives -= 1
+        if self.lives <= 0:
+            self.game.gameover.enter()
+        else:
+            if self.game.mode == "Hard":
+                self.health = 1
+            else:
+                self.health = 3
+            self.game.levelselection.enter()
 
 
             

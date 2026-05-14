@@ -29,7 +29,11 @@ class death(state.State):
             self.game.pausecooldown = 20
             self.game.levelselection.enter()
             self.exit()
-            self.game.platformer.health = 3
+            # Guys ito yung nagre-reset ng health sa death screen
+            if self.game.mode == "Hard":
+                self.game.platformer.health = 1
+            else:
+                self.game.platformer.health = 5
     def render(self):
         self.game.prev_state.render()
         self.game.screen.blit(self.death_text,self.death_text_rect)

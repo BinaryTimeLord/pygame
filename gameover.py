@@ -13,11 +13,16 @@ class Gameover(state.State):
             self.exit()
             self.game.spash.enter()
             self.game.spash.countdown = 75
-            self.game.platformer.lives = 3
+            # Guys ito yung nagre-reset ng health/lives kapag nag restart galing Game Over
+            if self.game.mode == "Hard":
+                self.game.platformer.lives = 1
+                self.game.platformer.health = 1
+            else:
+                self.game.platformer.lives = 3
+                self.game.platformer.health = 5
             self.game.levelselection.levellock = [0,1,1,1,1,1,1,1,1,1,1,1]
             self.game.platformer.coins = 0
             self.game.levelselection.current_sel = 0
-            self.game.platformer.health = 3
             self.exit()
     def render(self):
         self.game.prev_state.render()
