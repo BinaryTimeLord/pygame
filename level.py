@@ -1,24 +1,25 @@
 
 levellocks = [0,1,1,1,1,1,1,1,1,1,1,1]
 
-#levelsdone = 1,2
 
 
-level1 = {"num":1,"map": 
-["g             g                                         h                                      g",  
- "g             g  f                                gbbbbbbbbbbbbg                               g",  
- "g             g                       t T                                                      g",  
- "g             gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg        gl         g",  
- "g                                         g                                         ggl        g",  
- "g                                         g                                         gggl       g",  
- "g                                         g                                         ggggl      g",  
- "g                                         g    t       cccccccccccc                 gggggl     g",  
- "g                                  c  gggbgggggggggggggggggggggggggggggggggggggggbbbggggggbggggg",  
- "g                               c  g  ggg     c     c     c     c    c    c     c     c    ggggg",  
- "g                               g     gggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",  
- "g       P          t T       gC       gggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",  
- "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",  
- "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"],  
+
+level1 = {"num":1,"map":
+ [
+  "g                                       h                                         g             g",
+  "g                                gbbbbbbbbbbbbg                                f  g             g",
+  "g                                                       T t                       g             g",
+  "g         r p   gl   gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg             g",
+  "g        rgbbb  ggl                                   g                                         g",
+  "g       rgg  p  gggl                                  g                                         g",
+  "g      rgggbbb  ggggl                                 g                                         g",
+  "g     rgggg    pgggggl        cccccccccccc       t    g                                         g",
+  "gggggbgggggggggggggggggggggggggggggggggggggggggggggggggbggg  c                                  g",
+  "ggggg    c     c     c    c    c     c     c     c      ggg  g  c                               g",
+  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg     g                               g",
+  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg       Cg       T t          P       g",
+  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"],
  "ground image":"beach.png",
   "background image":"beachbackground.png",
          "music":"beachtheme.ogg",
@@ -26,16 +27,16 @@ level1 = {"num":1,"map":
 level2 = {"num":2,"map":
  ["                                                                                                                      ",
   "gg                                                                      h                                           gg",
-  "gg                                   ccc                             gbbbbbg       g                        f        gg",
-  "gg                                 gbg ggg                                         g                                 gg",
-  "gg                                ggbg gggg                  ggggg                 g             gbg   ggggggg       gg",
-  "gg                               gggbg ggggg         c c c                         g            ggbg                 gg",
-  "gg     gg    gg    gg    gg     ggggbg gggggg       ggggggg                        g           gggbg                 gg",
-  "gg P                        t  ggggg  hggggggg      TC   tC          TC      C     g          gggg        cccc       gg",
-  "gggggggSSSSSSSSSSSSSSSSSSSSgggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
-  "ggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"],
+  "gg                                   ccc                             gbbbbbg                               f        gg",
+  "gg                                 gbg ggg                                                                          gg",
+  "gg                                ggbg gggg                  ggggg                              gbg   ggggggg       gg",
+  "gg                               gggbg ggggg         c c c                                     ggbg                 gg",
+  "gg         c c c c c c          ggggbg gggggg       ggggggg                                   gggbg                 gg",
+  "gg P t   ggggggggggggggg   t   ggggg  hggggggg      T    t           T       C               gggg        cccc       gg",
+  "ggggggggSSSSSSSSSSSSSSSSSggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+  "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+  "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
+  "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg"],
  "ground image":"beach.png",
   "background image":"beachbackground.png",
          "music":"beachtheme.ogg",
