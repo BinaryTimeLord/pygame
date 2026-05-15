@@ -3,7 +3,7 @@ import pygame._sdl2 as sdl2
 
 import gameover
 import pause
-import state,utilities,spashscreen, startscreen, levelselect, platformer
+import state,utilities,spashscreen, startscreen, levelselect, platformer, settings
 import victory
 import win
 
@@ -14,7 +14,11 @@ class game():
         #sets up pygame
         os.environ["SDL_VIDEO_CENTERED"] = "1"
         pygame.init()
+        self.mode = "Normal"
 
+        # Level locks layout blueprint: Index 0 is unlocked (0), indices 1-11 are locked (1)
+        self.normal_progress = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        self.hard_progress = [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
         pygame.display.set_caption(GAMETITLE)
         self.screen_width, self.screen_height = 800, 640
         self.screen = pygame.display.set_mode((self.screen_width,self.screen_height),pygame.RESIZABLE|pygame.SCALED)
@@ -29,6 +33,14 @@ class game():
         #sets up current states
         self.curr_state = "game"
         self.prev_state = "game"
+        #settingsandshi
+        self.levelselection = levelselect.LevelSelect(self)
+        self.platformer = platformer.Platformer(self)
+
+        # ADD THIS INSTANCE HOOK REFERENCE HERE
+        self.settings = settings.Settings(self)
+
+        self.pausecooldown = 20
 
         #sets up controls
         pygame.joystick.init()
@@ -87,7 +99,8 @@ class game():
                 pygame.quit()
             if event.type == pygame.JOYBUTTONDOWN:
                 print(event)
-
+            if hasattr(self.curr_state, 'handle_event'):
+                self.curr_state.handle_event(event)
 
 
         self.update_actions()
